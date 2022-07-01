@@ -30,14 +30,16 @@ export const handler: Handlers = {
 export default function AboutPage({ data }: PageProps<LoaderData>) {
   return (
     <main>
-      <h1 class={tw`text-xl font-bold`}>All Apps</h1>
+      <h1>All Apps</h1>
       <div>
         {data.apps.map((app: Application) => (
-          <div class={tw`bg-gray-100 rounded border-2 shadow p-2 m-2`}>
-            <h1 class={tw`text-lg`}>{app.name}</h1>
+          <div>
+            <h1>{app.name}</h1>
+            <a href={`/apps/${app.token}`}>View</a>
           </div>
         ))}
       </div>
+      <h2>Create a new app</h2>
       <form method="post">
         <input type="text" name="name" />
         <input type="submit" value="Submit" />
